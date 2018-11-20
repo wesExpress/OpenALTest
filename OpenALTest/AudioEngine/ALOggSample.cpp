@@ -1,7 +1,7 @@
 #include "ALOggSample.h"
 
 #include <iostream>
-#include <stb_vorbis.h>
+#include <Vorbis/stb_vorbis.h>
 
 Audio::OggSample::OggSample()
 	:
@@ -35,10 +35,10 @@ Audio::OggSample::OggSample(const std::string & filePath)
 
 	ALuint format = GetFormatNumChannels(static_cast<ALuint>(channels));
 
-	std::cout << "---Ogg Audio Info---" << std::endl;
-	std::cout << "Sampling Rate : " << sample_rate / 1000.0 << " kHz." << std::endl;
-	std::cout << "Channel       : " << channels << " Channel(s)." << std::endl;
-	std::cout << "Duration      : " << duration << " ms." << std::endl;
+	//std::cout << "---Ogg Audio Info---" << std::endl;
+	//std::cout << "Sampling Rate : " << sample_rate / 1000.0 << " kHz." << std::endl;
+	//std::cout << "Channel       : " << channels << " Channel(s)." << std::endl;
+	//std::cout << "Duration      : " << duration << " ms." << std::endl;
 
 	alBufferData(buffer.GetBuffer(), static_cast<ALenum>(format), data, 
 		static_cast<ALsizei>(sizeof(short)*samples*channels), static_cast<ALsizei>(sampleRate));
@@ -46,11 +46,11 @@ Audio::OggSample::OggSample(const std::string & filePath)
 
 	if (AL_NO_ERROR != alGetError)
 	{
-		std::cout << "OpenAL error in ogg sample." << std::endl;
+		//std::cout << "OpenAL error in ogg sample." << std::endl;
 	}
 }
 
 Audio::OggSample::~OggSample()
 {
-	std::cout << "Destroyed Ogg sample." << std::endl;
+	//std::cout << "Destroyed Ogg sample." << std::endl;
 }

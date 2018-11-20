@@ -10,7 +10,7 @@ Audio::WavSample::WavSample()
 	duration(0.0f),
 	sizeStream(0.0f)
 {
-	std::cout << "Constructed ALWaveSample" << std::endl;
+	//std::cout << "Constructed ALWaveSample" << std::endl;
 }
 
 Audio::WavSample::WavSample(const std::string & filePath)
@@ -54,14 +54,14 @@ Audio::WavSample::WavSample(const std::string & filePath)
 		file.read(wave.data(), static_cast<long>(wave.size()));
 		sizeStream = (float)wave.size();
 
-		duration = header.totalLength / (header.channels * header.sampleRate * (header.bitsPerSample / 8.0f))*1.0f;
-		std::cout << "---WAV Audio Info---" << std::endl;
-		std::cout << "Sampling rate : " << sampleRate / 1000.0f << " kHz" << std::endl;
-		std::cout << "Channel       : " << channels << " Channel(s)." << std::endl;
-		std::cout << "Size Stream   : " << sizeStream / (1024 * 1024) << " MB." << std::endl;
-		std::cout << "Duration      : " << duration << " ms." << std::endl;
-		std::cout << "Bit depth     : " << header.format << std::endl;
-		std::cout << "File is       : " << (header.pcm == 1 ? "Uncompressed" : "Compressed") << std::endl;
+		//duration = header.totalLength / (header.channels * header.sampleRate * (header.bitsPerSample / 8.0f))*1.0f;
+		//std::cout << "---WAV Audio Info---" << std::endl;
+		//std::cout << "Sampling rate : " << sampleRate / 1000.0f << " kHz" << std::endl;
+		//std::cout << "Channel       : " << channels << " Channel(s)." << std::endl;
+		//std::cout << "Size Stream   : " << sizeStream / (1024 * 1024) << " MB." << std::endl;
+		//std::cout << "Duration      : " << duration << " ms." << std::endl;
+		//std::cout << "Bit depth     : " << header.format << std::endl;
+		//std::cout << "File is       : " << (header.pcm == 1 ? "Uncompressed" : "Compressed") << std::endl;
 
 		ALuint channelFormat = GetFormatNumChannels(static_cast<ALuint>(channels));
 
@@ -70,12 +70,12 @@ Audio::WavSample::WavSample(const std::string & filePath)
 
 		if (AL_NO_ERROR != alGetError)
 		{
-			std::cout << "OpenAL error in wave sample." << std::endl;
+			//std::cout << "OpenAL error in wave sample." << std::endl;
 		}
 	}
 }
 
 Audio::WavSample::~WavSample()
 {
-	std::cout << "Destroyed WAV sample." << std::endl;
+	//std::cout << "Destroyed WAV sample." << std::endl;
 }

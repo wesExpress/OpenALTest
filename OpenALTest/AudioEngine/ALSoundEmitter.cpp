@@ -14,7 +14,7 @@ Audio::AudioEmitter::AudioEmitter(const std::string & filePath)
 	idBuffer(0),
 	idSource(0)
 {
-	std::cout << "Constructing Audio Emitter." << std::endl;
+	//std::cout << "Constructing Audio Emitter." << std::endl;
 
 	sample = SampleFactory::CreateSample(filePath);
 	idBuffer = sample->GetBuffer();
@@ -30,7 +30,7 @@ Audio::AudioEmitter::AudioEmitter(const std::string & filePath)
 
 Audio::AudioEmitter::~AudioEmitter()
 {
-	std::cout << "Destroying audio emitter." << std::endl;
+	//std::cout << "Destroying audio emitter." << std::endl;
 }
 
 void Audio::AudioEmitter::SetPosition(const glm::vec3& position)

@@ -2,7 +2,7 @@
 
 #include <memory>
 #include <glm/glm.hpp>
-#include <al.h>
+#include <AL/al.h>
 
 namespace Audio
 {

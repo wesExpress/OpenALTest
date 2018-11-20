@@ -20,12 +20,12 @@ Audio::AudioListener::AudioListener(AudioListenerSettings & audioSettings)
 	direction = audioSettings.defaultDirection;
 	upVector = audioSettings.defaultUpVector;
 
-	std::cout << "Constructing listener." << std::endl;
+	//std::cout << "Constructing listener." << std::endl;
 }
 
 Audio::AudioListener::~AudioListener()
 {
-	std::cout << "Destroying listener." << std::endl;
+	//std::cout << "Destroying listener." << std::endl;
 }
 
 void Audio::AudioListener::SetPosition(glm::vec3 & position)

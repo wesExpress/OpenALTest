@@ -89,6 +89,11 @@ glm::vec3 Audio::AudioListener::GetVelocity() const
 	return velocity;
 }
 
+glm::vec3 Audio::AudioListener::GetDirection() const
+{
+	return direction;
+}
+
 void Audio::AudioListener::UpdateListener(const glm::vec3 & position, const glm::vec3 & direction)
 {
 	this->position = position;

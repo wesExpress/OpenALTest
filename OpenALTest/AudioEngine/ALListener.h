@@ -47,6 +47,7 @@ namespace Audio
 
 		glm::vec3 GetPosition() const;
 		glm::vec3 GetVelocity() const;
+		glm::vec3 GetDirection() const;
 
 		void UpdateListener(const glm::vec3& position, const glm::vec3& direction);
 	private:

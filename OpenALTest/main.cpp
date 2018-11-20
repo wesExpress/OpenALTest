@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include <SDL2/SDL.h>
+#include <glm/glm.hpp>
 
 #include "AudioSystem.h"
 
@@ -66,9 +67,13 @@ int main(int argc, char** argv)
 
 	///////////////////////////////////////
 	bool testing = true;
+	bool moved = false;
 	SDL_Event e;
 	while (testing)
 	{
+		glm::vec3 newPosition = audioListener->GetPosition();
+		glm::vec3 newDirection = audioListener->GetDirection();
+
 		spellEmitter->Play();
 		while (SDL_PollEvent(&e))
 		{
@@ -90,53 +95,39 @@ int main(int argc, char** argv)
 					musicEmitter->Play();
 					break;
 				case SDLK_DOWN:
-					audioListener->SetPosition(
-						audioListener->GetPosition().x, 
-						audioListener->GetPosition().y + 5.0f,
-						audioListener->GetPosition().z);
+					moved = true;
 
-					std::cout << "(" << 
-						audioListener->GetPosition().x << "," << 
-						audioListener->GetPosition().y << "," <<
-						audioListener->GetPosition().z << ")" << std::endl;
+					newPosition.y += 5.0f;
 					break;
 				case SDLK_UP:
-					audioListener->SetPosition(
-						audioListener->GetPosition().x,
-						audioListener->GetPosition().y - 5.0f,
-						audioListener->GetPosition().z);
+					moved = true;
 
-					std::cout << "(" <<
-						audioListener->GetPosition().x << "," <<
-						audioListener->GetPosition().y << "," <<
-						audioListener->GetPosition().z << ")" << std::endl;
+					newPosition.y -= 5.0f;
 					break;
 				case SDLK_RIGHT:
-					audioListener->SetPosition(
-						audioListener->GetPosition().x + 5.0f,
-						audioListener->GetPosition().y,
-						audioListener->GetPosition().z);
+					moved = true;
 
-					std::cout << "(" <<
-						audioListener->GetPosition().x << "," <<
-						audioListener->GetPosition().y << "," <<
-						audioListener->GetPosition().z << ")" << std::endl;
+					newPosition.x += 5.0f;
 					break;
 				case SDLK_LEFT:
-					audioListener->SetPosition(
-						audioListener->GetPosition().x - 5.0f,
-						audioListener->GetPosition().y,
-						audioListener->GetPosition().z);
+					moved = true;
 
-					std::cout << "(" <<
-						audioListener->GetPosition().x << "," <<
-						audioListener->GetPosition().y << "," <<
-						audioListener->GetPosition().z << ")" << std::endl;
+					newPosition.x -= 5.0f;
 					break;
 				}
 				break;
 			}
 		}
+		if (moved)
+		{
+			std::cout << "(" <<
+				audioListener->GetPosition().x << "," <<
+				audioListener->GetPosition().y << "," <<
+				audioListener->GetPosition().z << ")" << std::endl;
+
+			moved = false;
+		}
+		audioListener->UpdateListener(newPosition, newDirection);
 	}
 	
 	SDL_Quit();

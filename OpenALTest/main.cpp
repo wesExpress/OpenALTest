@@ -11,6 +11,8 @@ int main(int argc, char** argv)
 		//std::cout << "SDL initialized." << std::endl;
 	}
 
+	SDL_Window* window = SDL_CreateWindow("title", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
+
 	std::unique_ptr<AudioSystem> audioSystem = std::make_unique<AudioSystem>();
 	std::unique_ptr<Audio::AudioListener> audioListener = std::make_unique<Audio::AudioListener>();
 	audioSystem->LoadFromFile("pistol", "Sounds/pistol.wav");
@@ -62,27 +64,39 @@ int main(int argc, char** argv)
 
 	///////////////////////////////////////
 	bool testing = true;
+	SDL_Event e;
 	while (testing)
 	{
-		SDL_Event e;
 		while (SDL_PollEvent(&e))
 		{
 			switch (e.type)
 			{
+			case SDL_QUIT:
+				testing = false;
+				break;
 			case SDL_KEYDOWN:
 				switch (e.key.keysym.sym)
 				{
-				case SDLK_q:
-					std::cout << "q" << std::endl;
-					//testing = false;
+				case SDLK_1:
+					pistolEmitter->Play();
 					break;
-				case SDLK_w:
-					std::cout << "w" << std::endl;
-					//testing = false;
+				case SDLK_2:
+					spellEmitter->Play();
 					break;
-				case SDLK_e:
-					std::cout << "e" << std::endl;
-					//testing = false;
+				case SDLK_3:
+					musicEmitter->Play();
+					break;
+				case SDLK_RIGHT:
+					spellEmitter->SetPosition(
+						spellEmitter->GetPostion().x, 
+						spellEmitter->GetPostion().y + 5.0f, 
+						spellEmitter->GetPostion().z);
+					break;
+				case SDLK_LEFT:
+					spellEmitter->SetPosition(
+						spellEmitter->GetPostion().x,
+						spellEmitter->GetPostion().y - 5.0f,
+						spellEmitter->GetPostion().z);
 					break;
 				}
 				break;

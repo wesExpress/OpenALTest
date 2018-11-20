@@ -6,8 +6,8 @@ Audio::AudioListener::AudioListener()
 	:
 	position(0.0f, 0.0f, 0.0f),
 	velocity(0.0f, 0.0f, 0.0f),
-	direction(0.0f, 0.0f, 0.0f),
-	upVector(0.0f, 0.0f, 0.0f)
+	direction(0.0f, 0.0f, -1.0f),
+	upVector(0.0f, 1.0f, 0.0f)
 {
 }
 
@@ -72,6 +72,11 @@ void Audio::AudioListener::SetDirection(const float & x, const float & y, const 
 		upVector.x, upVector.y, upVector.z
 	};
 	alListenerfv(AL_ORIENTATION, orientation);
+}
+
+void Audio::AudioListener::SetGain(const float gain)
+{
+	alListenerf(AL_GAIN, gain);
 }
 
 glm::vec3 Audio::AudioListener::GetPosition() const

@@ -11,6 +11,7 @@ int main(int argc, char** argv)
 		//std::cout << "SDL initialized." << std::endl;
 	}
 
+	// need a window open for any SDL input
 	SDL_Window* window = SDL_CreateWindow("title", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
 
 	std::unique_ptr<AudioSystem> audioSystem = std::make_unique<AudioSystem>();
@@ -20,7 +21,7 @@ int main(int argc, char** argv)
 	audioSystem->LoadFromFile("XYZ", "Sounds/XYZ.ogg");
 	audioSystem->LoadFromFile("bounce", "Sounds/bounce.wav");
 
-	Audio::SetDistanceModel(AL_INVERSE_DISTANCE_CLAMPED);
+	Audio::SetDistanceModel(AL_LINEAR_DISTANCE_CLAMPED);
 
 	// a stereo track that does not change its volume
 	// depending on distance to listener
@@ -43,9 +44,9 @@ int main(int argc, char** argv)
 	spellEmitter->EnableRelativelistener(true);
 	spellEmitter->SetPosition(0.0f, 0.0f, 0.0f);
 	spellEmitter->SetDirection(0.0f, 0.0f, 0.0f);
-	spellEmitter->SetMinMaxDistance(1.0f, 200.0f);
-	spellEmitter->SetRollOffFactor(2.0f);
-	spellEmitter->SetReferenceDistance(25.0f);
+	spellEmitter->SetMinMaxDistance(1.0f, 100.0f);
+	spellEmitter->SetRollOffFactor(1.0f);
+	spellEmitter->SetReferenceDistance(5.0f);
 	spellEmitter->SetGain(1.0f);
 	spellEmitter->SetLoop(false);
 
@@ -61,12 +62,14 @@ int main(int argc, char** argv)
 
 	// for simplicity, the listener is at the origin
 	audioListener->SetPosition(0.0f, 0.0f, 0.0f);
+	audioListener->SetGain(0.5f);
 
 	///////////////////////////////////////
 	bool testing = true;
 	SDL_Event e;
 	while (testing)
 	{
+		spellEmitter->Play();
 		while (SDL_PollEvent(&e))
 		{
 			switch (e.type)
@@ -86,17 +89,49 @@ int main(int argc, char** argv)
 				case SDLK_3:
 					musicEmitter->Play();
 					break;
+				case SDLK_DOWN:
+					audioListener->SetPosition(
+						audioListener->GetPosition().x, 
+						audioListener->GetPosition().y + 5.0f,
+						audioListener->GetPosition().z);
+
+					std::cout << "(" << 
+						audioListener->GetPosition().x << "," << 
+						audioListener->GetPosition().y << "," <<
+						audioListener->GetPosition().z << ")" << std::endl;
+					break;
+				case SDLK_UP:
+					audioListener->SetPosition(
+						audioListener->GetPosition().x,
+						audioListener->GetPosition().y - 5.0f,
+						audioListener->GetPosition().z);
+
+					std::cout << "(" <<
+						audioListener->GetPosition().x << "," <<
+						audioListener->GetPosition().y << "," <<
+						audioListener->GetPosition().z << ")" << std::endl;
+					break;
 				case SDLK_RIGHT:
-					spellEmitter->SetPosition(
-						spellEmitter->GetPostion().x, 
-						spellEmitter->GetPostion().y + 5.0f, 
-						spellEmitter->GetPostion().z);
+					audioListener->SetPosition(
+						audioListener->GetPosition().x + 5.0f,
+						audioListener->GetPosition().y,
+						audioListener->GetPosition().z);
+
+					std::cout << "(" <<
+						audioListener->GetPosition().x << "," <<
+						audioListener->GetPosition().y << "," <<
+						audioListener->GetPosition().z << ")" << std::endl;
 					break;
 				case SDLK_LEFT:
-					spellEmitter->SetPosition(
-						spellEmitter->GetPostion().x,
-						spellEmitter->GetPostion().y - 5.0f,
-						spellEmitter->GetPostion().z);
+					audioListener->SetPosition(
+						audioListener->GetPosition().x - 5.0f,
+						audioListener->GetPosition().y,
+						audioListener->GetPosition().z);
+
+					std::cout << "(" <<
+						audioListener->GetPosition().x << "," <<
+						audioListener->GetPosition().y << "," <<
+						audioListener->GetPosition().z << ")" << std::endl;
 					break;
 				}
 				break;

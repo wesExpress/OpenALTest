@@ -1,5 +1,19 @@
 #pragma once
 
+/* The audio listener in OpenAL determines the sound 
+	of all sources being played. In 3D space, having a 
+	position vector of (0,0,0) places the listener at the
+	origin. This is not enough however, as where the 
+	listener is looking is also needed. This is done with
+	an orientation vector, made of two separate vectors:
+	orientation = (direction, upVector)
+	The default values are:
+	direction = (0,0,-1)
+	upVector = (0,1,0)
+	which translate to looking 'into' the screen (negative z)
+	and up begin positive y
+*/
+
 #include "ALSoundBase.h"
 
 namespace Audio
@@ -9,7 +23,7 @@ namespace Audio
 	public:
 		const glm::vec3 defaultPosition = glm::vec3(0.0f, 0.0f, 0.0f);
 		const glm::vec3 defaultVelocity = glm::vec3(0.0f, 0.0f, 0.0f);
-		const glm::vec3 defaultDirection = glm::vec3(0.0f, 0.0f, 0.0f);
+		const glm::vec3 defaultDirection = glm::vec3(0.0f, 0.0f, -1.0f);
 		const glm::vec3 defaultUpVector = glm::vec3(0.0f, 1.0f, 0.0f);
 	};
 
@@ -28,6 +42,8 @@ namespace Audio
 
 		void SetDirection(glm::vec3& direction);
 		void SetDirection(const float& x, const float& y, const float& z);
+
+		void SetGain(const float gain);
 
 		glm::vec3 GetPosition() const;
 		glm::vec3 GetVelocity() const;

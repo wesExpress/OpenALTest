@@ -4,9 +4,9 @@
 #include <memory>
 #include <iostream>
 
-#include "ALBackend.h"
-#include "ALSoundEmitter.h"
-#include "ALListener.h"
+#include "AudioEngine/ALBackend.h"
+#include "AudioEngine/ALSoundEmitter.h"
+#include "AudioEngine/ALListener.h"
 
 namespace WEngine
 {

@@ -9,6 +9,7 @@ int main()
 	audioSystem->LoadFromFile("pistol", "Sounds/pistol.wav");
 	audioSystem->LoadFromFile("spell", "Sounds/foom_0_mono.wav");
 	audioSystem->LoadFromFile("XYZ", "Sounds/XYZ.ogg");
+	audioSystem->LoadFromFile("bounce", "Sounds/bounce.wav");
 
 	WEngine::SetDistanceModel(AL_INVERSE_DISTANCE_CLAMPED);
 

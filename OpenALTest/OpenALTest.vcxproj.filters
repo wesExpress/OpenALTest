@@ -13,72 +13,78 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\AudioEngine">
+      <UniqueIdentifier>{724a24b1-0e72-43f3-ab5f-2ba27b76c6ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AudioEngine">
+      <UniqueIdentifier>{39ae0cdf-1349-4ac2-9b05-77d3435b43c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ALBackend.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ALBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ALListener.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ALOggSample.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ALSoundEmitter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ALSource.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ALUtil.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ALWaveSample.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AudioSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AudioEngine\ALBackend.cpp">
+      <Filter>Source Files\AudioEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioEngine\ALBuffer.cpp">
+      <Filter>Source Files\AudioEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioEngine\ALListener.cpp">
+      <Filter>Source Files\AudioEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioEngine\ALOggSample.cpp">
+      <Filter>Source Files\AudioEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioEngine\ALSoundEmitter.cpp">
+      <Filter>Source Files\AudioEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioEngine\ALSource.cpp">
+      <Filter>Source Files\AudioEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioEngine\ALUtil.cpp">
+      <Filter>Source Files\AudioEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioEngine\ALWaveSample.cpp">
+      <Filter>Source Files\AudioEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ALBackend.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ALBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ALFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ALListener.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ALOggSample.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ALSoundBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ALSoundEmitter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ALSource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ALUtil.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ALWaveSample.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AudioSystem.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioEngine\ALWaveSample.h">
+      <Filter>Header Files\AudioEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioEngine\ALUtil.h">
+      <Filter>Header Files\AudioEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioEngine\ALSource.h">
+      <Filter>Header Files\AudioEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioEngine\ALSoundEmitter.h">
+      <Filter>Header Files\AudioEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioEngine\ALSoundBase.h">
+      <Filter>Header Files\AudioEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioEngine\ALOggSample.h">
+      <Filter>Header Files\AudioEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioEngine\ALListener.h">
+      <Filter>Header Files\AudioEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioEngine\ALFactory.h">
+      <Filter>Header Files\AudioEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioEngine\ALBuffer.h">
+      <Filter>Header Files\AudioEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioEngine\ALBackend.h">
+      <Filter>Header Files\AudioEngine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -129,28 +129,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ALBackend.cpp" />
-    <ClCompile Include="ALBuffer.cpp" />
-    <ClCompile Include="ALListener.cpp" />
-    <ClCompile Include="ALOggSample.cpp" />
-    <ClCompile Include="ALSoundEmitter.cpp" />
-    <ClCompile Include="ALSource.cpp" />
-    <ClCompile Include="ALUtil.cpp" />
-    <ClCompile Include="ALWaveSample.cpp" />
+    <ClCompile Include="AudioEngine\ALBackend.cpp" />
+    <ClCompile Include="AudioEngine\ALBuffer.cpp" />
+    <ClCompile Include="AudioEngine\ALListener.cpp" />
+    <ClCompile Include="AudioEngine\ALOggSample.cpp" />
+    <ClCompile Include="AudioEngine\ALSoundEmitter.cpp" />
+    <ClCompile Include="AudioEngine\ALSource.cpp" />
+    <ClCompile Include="AudioEngine\ALUtil.cpp" />
+    <ClCompile Include="AudioEngine\ALWaveSample.cpp" />
     <ClCompile Include="AudioSystem.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ALBackend.h" />
-    <ClInclude Include="ALBuffer.h" />
-    <ClInclude Include="ALFactory.h" />
-    <ClInclude Include="ALListener.h" />
-    <ClInclude Include="ALOggSample.h" />
-    <ClInclude Include="ALSoundBase.h" />
-    <ClInclude Include="ALSoundEmitter.h" />
-    <ClInclude Include="ALSource.h" />
-    <ClInclude Include="ALUtil.h" />
-    <ClInclude Include="ALWaveSample.h" />
+    <ClInclude Include="AudioEngine\ALBackend.h" />
+    <ClInclude Include="AudioEngine\ALBuffer.h" />
+    <ClInclude Include="AudioEngine\ALFactory.h" />
+    <ClInclude Include="AudioEngine\ALListener.h" />
+    <ClInclude Include="AudioEngine\ALOggSample.h" />
+    <ClInclude Include="AudioEngine\ALSoundBase.h" />
+    <ClInclude Include="AudioEngine\ALSoundEmitter.h" />
+    <ClInclude Include="AudioEngine\ALSource.h" />
+    <ClInclude Include="AudioEngine\ALUtil.h" />
+    <ClInclude Include="AudioEngine\ALWaveSample.h" />
     <ClInclude Include="AudioSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

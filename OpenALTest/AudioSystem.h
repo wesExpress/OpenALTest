@@ -8,7 +8,7 @@
 #include "AudioEngine/ALSoundEmitter.h"
 #include "AudioEngine/ALListener.h"
 
-namespace WEngine
+namespace Audio
 {
 	class AudioSystem : public OpenALBackend
 	{

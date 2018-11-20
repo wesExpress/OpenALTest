@@ -2,7 +2,7 @@
 
 #include "ALBackend.h"
 
-namespace WEngine
+namespace Audio
 {
 	class ALBuffer
 	{

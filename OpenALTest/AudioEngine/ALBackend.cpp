@@ -1,7 +1,7 @@
 #include "ALBackend.h"
 #include <iostream>
 
-WEngine::OpenALBackend::OpenALBackend()
+Audio::OpenALBackend::OpenALBackend()
 	:
 	isInitialized(false)
 {
@@ -48,7 +48,7 @@ WEngine::OpenALBackend::OpenALBackend()
 	}
 }
 
-WEngine::OpenALBackend::~OpenALBackend()
+Audio::OpenALBackend::~OpenALBackend()
 {
 	if (context)
 	{
@@ -65,7 +65,7 @@ WEngine::OpenALBackend::~OpenALBackend()
 	}
 }
 
-bool WEngine::OpenALBackend::IsInitialized()
+bool Audio::OpenALBackend::IsInitialized()
 {
 	return isInitialized;
 }

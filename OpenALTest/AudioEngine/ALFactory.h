@@ -7,7 +7,7 @@
 #include "ALWaveSample.h"
 #include "ALOggSample.h"
 
-namespace WEngine
+namespace Audio
 {
 	class SampleFactory
 	{

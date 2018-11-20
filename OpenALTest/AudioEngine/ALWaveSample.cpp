@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 
-WEngine::WavSample::WavSample()
+Audio::WavSample::WavSample()
 	:
 	channels(0),
 	sampleRate(0),
@@ -13,7 +13,7 @@ WEngine::WavSample::WavSample()
 	std::cout << "Constructed ALWaveSample" << std::endl;
 }
 
-WEngine::WavSample::WavSample(const std::string & filePath)
+Audio::WavSample::WavSample(const std::string & filePath)
 {
 	WavHeader header;
 
@@ -75,7 +75,7 @@ WEngine::WavSample::WavSample(const std::string & filePath)
 	}
 }
 
-WEngine::WavSample::~WavSample()
+Audio::WavSample::~WavSample()
 {
 	std::cout << "Destroyed WAV sample." << std::endl;
 }

@@ -6,7 +6,7 @@
 #include "ALSoundBase.h"
 #include "ALUtil.h"
 
-namespace WEngine
+namespace Audio
 {
 	class OggSample : public SampleBase
 	{

@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-WEngine::AudioListener::AudioListener()
+Audio::AudioListener::AudioListener()
 	:
 	position(0.0f, 0.0f, 0.0f),
 	velocity(0.0f, 0.0f, 0.0f),
@@ -11,7 +11,7 @@ WEngine::AudioListener::AudioListener()
 {
 }
 
-WEngine::AudioListener::AudioListener(AudioListenerSettings & audioSettings)
+Audio::AudioListener::AudioListener(AudioListenerSettings & audioSettings)
 	:
 	audioSettings(audioSettings)
 {
@@ -23,36 +23,36 @@ WEngine::AudioListener::AudioListener(AudioListenerSettings & audioSettings)
 	std::cout << "Constructing listener." << std::endl;
 }
 
-WEngine::AudioListener::~AudioListener()
+Audio::AudioListener::~AudioListener()
 {
 	std::cout << "Destroying listener." << std::endl;
 }
 
-void WEngine::AudioListener::SetPosition(glm::vec3 & position)
+void Audio::AudioListener::SetPosition(glm::vec3 & position)
 {
 	this->position = position;
 	alListener3f(AL_POSITION, this->position.x, this->position.y, this->position.y);
 }
 
-void WEngine::AudioListener::SetPosition(const float & x, const float & y, const float & z)
+void Audio::AudioListener::SetPosition(const float & x, const float & y, const float & z)
 {
 	position = glm::vec3(x, y, z);
 	alListener3f(AL_POSITION, position.x, position.y, position.z);
 }
 
-void WEngine::AudioListener::SetVelocity(glm::vec3 & velocity)
+void Audio::AudioListener::SetVelocity(glm::vec3 & velocity)
 {
 	this->velocity = velocity;
 	alListener3f(AL_VELOCITY, this->velocity.x, this->velocity.y, this->velocity.y);
 }
 
-void WEngine::AudioListener::SetVelocity(const float & x, const float & y, const float & z)
+void Audio::AudioListener::SetVelocity(const float & x, const float & y, const float & z)
 {
 	velocity = glm::vec3(x, y, z);
 	alListener3f(AL_VELOCITY, velocity.x, velocity.y, velocity.z);
 }
 
-void WEngine::AudioListener::SetDirection(glm::vec3 & direction)
+void Audio::AudioListener::SetDirection(glm::vec3 & direction)
 {
 	this->direction = direction;
 	float orientation[6] =
@@ -63,7 +63,7 @@ void WEngine::AudioListener::SetDirection(glm::vec3 & direction)
 	alListenerfv(AL_ORIENTATION, orientation);
 }
 
-void WEngine::AudioListener::SetDirection(const float & x, const float & y, const float & z)
+void Audio::AudioListener::SetDirection(const float & x, const float & y, const float & z)
 {
 	this->direction = glm::vec3(x, y, z);
 	float orientation[6] =
@@ -74,17 +74,17 @@ void WEngine::AudioListener::SetDirection(const float & x, const float & y, cons
 	alListenerfv(AL_ORIENTATION, orientation);
 }
 
-glm::vec3 WEngine::AudioListener::GetPosition() const
+glm::vec3 Audio::AudioListener::GetPosition() const
 {
 	return position;
 }
 
-glm::vec3 WEngine::AudioListener::GetVelocity() const
+glm::vec3 Audio::AudioListener::GetVelocity() const
 {
 	return velocity;
 }
 
-void WEngine::AudioListener::UpdateListener(const glm::vec3 & position, const glm::vec3 & direction)
+void Audio::AudioListener::UpdateListener(const glm::vec3 & position, const glm::vec3 & direction)
 {
 	this->position = position;
 	this->velocity = velocity;

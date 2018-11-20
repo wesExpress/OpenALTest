@@ -1,14 +1,14 @@
 #include "AudioSystem.h"
 
-WEngine::AudioSystem::AudioSystem()
+Audio::AudioSystem::AudioSystem()
 {
 }
 
-WEngine::AudioSystem::~AudioSystem()
+Audio::AudioSystem::~AudioSystem()
 {
 }
 
-void WEngine::AudioSystem::LoadFromFile(const std::string & name, const std::string & filePath)
+void Audio::AudioSystem::LoadFromFile(const std::string & name, const std::string & filePath)
 {
 	if (filePath.empty())
 	{
@@ -20,7 +20,7 @@ void WEngine::AudioSystem::LoadFromFile(const std::string & name, const std::str
 	emitters.emplace(name, emitter);
 }
 
-std::shared_ptr<WEngine::AudioEmitter> WEngine::AudioSystem::GetEmitter(const std::string & name)
+std::shared_ptr<Audio::AudioEmitter> Audio::AudioSystem::GetEmitter(const std::string & name)
 {
 	if (emitters.count(name) > 0)
 	{

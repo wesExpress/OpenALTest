@@ -5,7 +5,7 @@
 #include "ALUtil.h"
 #include "ALFactory.h"
 
-namespace WEngine
+namespace Audio
 {
 	class ALSource
 	{

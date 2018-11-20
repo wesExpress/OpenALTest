@@ -2,7 +2,7 @@
 
 #include "ALSoundBase.h"
 
-namespace WEngine
+namespace Audio
 {
 	class AudioListenerSettings
 	{

@@ -4,7 +4,7 @@
 #include <glm/glm.hpp>
 #include <al.h>
 
-namespace WEngine
+namespace Audio
 {
 	class SampleBase
 	{

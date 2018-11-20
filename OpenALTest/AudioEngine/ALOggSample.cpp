@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stb_vorbis.h>
 
-WEngine::OggSample::OggSample()
+Audio::OggSample::OggSample()
 	:
 	channels(0),
 	sampleRate(0),
@@ -11,7 +11,7 @@ WEngine::OggSample::OggSample()
 {
 }
 
-WEngine::OggSample::OggSample(const std::string & filePath)
+Audio::OggSample::OggSample(const std::string & filePath)
 	:
 	channels(0),
 	sampleRate(0),
@@ -50,7 +50,7 @@ WEngine::OggSample::OggSample(const std::string & filePath)
 	}
 }
 
-WEngine::OggSample::~OggSample()
+Audio::OggSample::~OggSample()
 {
 	std::cout << "Destroyed Ogg sample." << std::endl;
 }

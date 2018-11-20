@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-WEngine::AudioEmitter::AudioEmitter(const std::string & filePath)
+Audio::AudioEmitter::AudioEmitter(const std::string & filePath)
 	:
 	position(0.0f, 0.0f, 0.0f),
 	velocity(0.0f, 0.0f, 0.0f),
@@ -28,64 +28,64 @@ WEngine::AudioEmitter::AudioEmitter(const std::string & filePath)
 	}
 }
 
-WEngine::AudioEmitter::~AudioEmitter()
+Audio::AudioEmitter::~AudioEmitter()
 {
 	std::cout << "Destroying audio emitter." << std::endl;
 }
 
-void WEngine::AudioEmitter::SetPosition(const glm::vec3& position)
+void Audio::AudioEmitter::SetPosition(const glm::vec3& position)
 {
 	this->position = position;
 	alSource3f(idSource, AL_POSITION, this->position.x, this->position.y, this->position.z);
 }
 
-void WEngine::AudioEmitter::SetPosition(const float x, const float y, const float z)
+void Audio::AudioEmitter::SetPosition(const float x, const float y, const float z)
 {
 	position = glm::vec3(x, y, z);
 	alSource3f(idSource, AL_POSITION, position.x, position.y, position.z);
 }
 
-void WEngine::AudioEmitter::SetVelocity(const glm::vec3& velocity)
+void Audio::AudioEmitter::SetVelocity(const glm::vec3& velocity)
 {
 	this->velocity = velocity;
 	alSource3f(idSource, AL_VELOCITY, this->velocity.x, this->velocity.y, this->velocity.z);
 }
 
-void WEngine::AudioEmitter::SetVelocity(const float x, const float y, const float z)
+void Audio::AudioEmitter::SetVelocity(const float x, const float y, const float z)
 {
 	velocity = glm::vec3(x, y, z);
 	alSource3f(idSource, AL_VELOCITY, velocity.x, velocity.y, velocity.z);
 }
 
-void WEngine::AudioEmitter::SetDirection(const glm::vec3& direction)
+void Audio::AudioEmitter::SetDirection(const glm::vec3& direction)
 {
 	this->direction = direction;
 	alSource3f(idSource, AL_DIRECTION, this->direction.x, this->direction.y, this->direction.z);
 }
 
-void WEngine::AudioEmitter::SetDirection(const float x, const float y, const float z)
+void Audio::AudioEmitter::SetDirection(const float x, const float y, const float z)
 {
 	direction = glm::vec3(x, y, z);
 	alSource3f(idSource, AL_DIRECTION, direction.x, direction.y, direction.z);
 }
 
-void WEngine::AudioEmitter::SetReferenceDistance(const float d)
+void Audio::AudioEmitter::SetReferenceDistance(const float d)
 {
 	alSourcef(idSource, AL_REFERENCE_DISTANCE, d);
 }
 
-void WEngine::AudioEmitter::SetRollOffFactor(const float d)
+void Audio::AudioEmitter::SetRollOffFactor(const float d)
 {
 	alSourcef(idSource, AL_ROLLOFF_FACTOR, d);
 }
 
-void WEngine::AudioEmitter::SetVolume(float volume)
+void Audio::AudioEmitter::SetVolume(float volume)
 {
 	this->volume = volume;
 	alSourcef(idSource, AL_GAIN, this->volume);
 }
 
-void WEngine::AudioEmitter::SetGain(float gain)
+void Audio::AudioEmitter::SetGain(float gain)
 {
 	if (gain < 0.0f)
 	{
@@ -96,19 +96,19 @@ void WEngine::AudioEmitter::SetGain(float gain)
 	alSourcef(idSource, AL_GAIN, gain);
 }
 
-void WEngine::AudioEmitter::SetLoop(const bool loop)
+void Audio::AudioEmitter::SetLoop(const bool loop)
 {
 	this->loop = loop;
 	alSourcei(idSource, AL_LOOPING, loop);
 }
 
-void WEngine::AudioEmitter::SetPitch(const float pitch)
+void Audio::AudioEmitter::SetPitch(const float pitch)
 {
 	this->pitch = pitch;
 	alSourcef(idSource, AL_PITCH, pitch);
 }
 
-void WEngine::AudioEmitter::SetMinMaxDistance(const float min, const float max)
+void Audio::AudioEmitter::SetMinMaxDistance(const float min, const float max)
 {
 	minDistance = min;
 	maxDistance = max;
@@ -117,7 +117,7 @@ void WEngine::AudioEmitter::SetMinMaxDistance(const float min, const float max)
 	alSourcef(idSource, AL_REFERENCE_DISTANCE, maxDistance);
 }
 
-void WEngine::AudioEmitter::SetMinMaxGain(const float min, const float max)
+void Audio::AudioEmitter::SetMinMaxGain(const float min, const float max)
 {
 	if (min < 0.0f || max > 1.0f)
 	{
@@ -132,22 +132,22 @@ void WEngine::AudioEmitter::SetMinMaxGain(const float min, const float max)
 	alSourcef(idSource, AL_MAX_GAIN, maxGain);
 }
 
-void WEngine::AudioEmitter::SetDopplerFactor(const float strength)
+void Audio::AudioEmitter::SetDopplerFactor(const float strength)
 {
 	alSourcef(idSource, AL_DOPPLER_FACTOR, strength);
 }
 
-void WEngine::AudioEmitter::SetSpeedOfSound(const float speed)
+void Audio::AudioEmitter::SetSpeedOfSound(const float speed)
 {
 	alSpeedOfSound(speed);
 }
 
-void WEngine::AudioEmitter::EnableRelativelistener(bool relative)
+void Audio::AudioEmitter::EnableRelativelistener(bool relative)
 {
 	alSourcei(idSource, AL_SOURCE_RELATIVE, relative);
 }
 
-void WEngine::AudioEmitter::Play()
+void Audio::AudioEmitter::Play()
 {
 	alSourcePlay(idSource);
 	if (AL_NO_ERROR != alGetError())
@@ -156,7 +156,7 @@ void WEngine::AudioEmitter::Play()
 	}
 }
 
-void WEngine::AudioEmitter::Pause()
+void Audio::AudioEmitter::Pause()
 {
 	alSourcePause(idSource);
 	if (AL_NO_ERROR != alGetError())
@@ -165,7 +165,7 @@ void WEngine::AudioEmitter::Pause()
 	}
 }
 
-void WEngine::AudioEmitter::Stop()
+void Audio::AudioEmitter::Stop()
 {
 	alSourceStop(idSource);
 	if (AL_NO_ERROR != alGetError())
@@ -174,7 +174,7 @@ void WEngine::AudioEmitter::Stop()
 	}
 }
 
-ALuint WEngine::AudioEmitter::GetState()
+ALuint Audio::AudioEmitter::GetState()
 {
 	ALint sourceState;
 	ALuint state = 0;

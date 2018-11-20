@@ -4,16 +4,16 @@
 
 int main()
 {
-	std::unique_ptr<WEngine::AudioSystem> audioSystem = std::make_unique<WEngine::AudioSystem>();
-	std::unique_ptr<WEngine::AudioListener> audioListener = std::make_unique<WEngine::AudioListener>();
+	std::unique_ptr<Audio::AudioSystem> audioSystem = std::make_unique<Audio::AudioSystem>();
+	std::unique_ptr<Audio::AudioListener> audioListener = std::make_unique<Audio::AudioListener>();
 	audioSystem->LoadFromFile("pistol", "Sounds/pistol.wav");
 	audioSystem->LoadFromFile("spell", "Sounds/foom_0_mono.wav");
 	audioSystem->LoadFromFile("XYZ", "Sounds/XYZ.ogg");
 	audioSystem->LoadFromFile("bounce", "Sounds/bounce.wav");
 
-	WEngine::SetDistanceModel(AL_INVERSE_DISTANCE_CLAMPED);
+	Audio::SetDistanceModel(AL_INVERSE_DISTANCE_CLAMPED);
 
-	std::shared_ptr<WEngine::AudioEmitter> pistolEmitter = audioSystem->GetEmitter("pistol");
+	std::shared_ptr<Audio::AudioEmitter> pistolEmitter = audioSystem->GetEmitter("pistol");
 	pistolEmitter->EnableRelativelistener(true);
 	pistolEmitter->SetPosition(0.0f, 0.0f, 0.0f);
 	pistolEmitter->SetDirection(0.0f, 0.0f, 0.0f);
@@ -21,7 +21,7 @@ int main()
 	pistolEmitter->SetGain(1.0f);
 	pistolEmitter->SetLoop(false);
 
-	std::shared_ptr<WEngine::AudioEmitter> spellEmitter = audioSystem->GetEmitter("spell");
+	std::shared_ptr<Audio::AudioEmitter> spellEmitter = audioSystem->GetEmitter("spell");
 	spellEmitter->EnableRelativelistener(true);
 	spellEmitter->SetPosition(0.0f, 0.0f, 0.0f);
 	spellEmitter->SetDirection(0.0f, 0.0f, 0.0f);
@@ -31,7 +31,7 @@ int main()
 	spellEmitter->SetGain(1.0f);
 	spellEmitter->SetLoop(false);
 
-	std::shared_ptr<WEngine::AudioEmitter> musicEmitter = audioSystem->GetEmitter("XYZ");
+	std::shared_ptr<Audio::AudioEmitter> musicEmitter = audioSystem->GetEmitter("XYZ");
 	musicEmitter->EnableRelativelistener(false);
 	musicEmitter->SetPosition(0.0f, 0.0f, 0.0f);
 	musicEmitter->SetDirection(0.0f, 0.0f, 0.0f);

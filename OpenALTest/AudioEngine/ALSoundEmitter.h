@@ -6,7 +6,7 @@
 #include "ALFactory.h"
 #include "ALSource.h"
 
-namespace WEngine
+namespace Audio
 {
 	class AudioEmitter : public AudioEmitterBase
 	{

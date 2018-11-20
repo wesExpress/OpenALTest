@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-ALint WEngine::GetFormatNumChannels(ALuint channels)
+ALint Audio::GetFormatNumChannels(ALuint channels)
 {
 	ALint format = 0;
 	switch (channels)
@@ -24,7 +24,7 @@ ALint WEngine::GetFormatNumChannels(ALuint channels)
 	return format;
 }
 
-void WEngine::SetDistanceModel(ALenum model)
+void Audio::SetDistanceModel(ALenum model)
 {
 	switch (model)
 	{

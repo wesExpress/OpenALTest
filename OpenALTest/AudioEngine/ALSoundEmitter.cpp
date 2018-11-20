@@ -144,7 +144,13 @@ void Audio::AudioEmitter::SetSpeedOfSound(const float speed)
 
 void Audio::AudioEmitter::EnableRelativelistener(bool relative)
 {
-	alSourcei(idSource, AL_SOURCE_RELATIVE, relative);
+	ALboolean rel = AL_FALSE;
+	if (relative)
+	{
+		rel = AL_TRUE;
+	}
+
+	alSourcei(idSource, AL_SOURCE_RELATIVE, rel);
 }
 
 void Audio::AudioEmitter::Play()

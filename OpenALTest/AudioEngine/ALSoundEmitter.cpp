@@ -149,7 +149,12 @@ void Audio::AudioEmitter::EnableRelativelistener(bool relative)
 
 void Audio::AudioEmitter::Play()
 {
-	alSourcePlay(idSource);
+	// Don't want to play when already playing
+	if (GetState() != AL_PLAYING)
+	{
+		alSourcePlay(idSource);
+	}
+	
 	if (AL_NO_ERROR != alGetError())
 	{
 		std::cout << "OpenAL error in Play()." << std::endl;
@@ -158,7 +163,12 @@ void Audio::AudioEmitter::Play()
 
 void Audio::AudioEmitter::Pause()
 {
-	alSourcePause(idSource);
+	// Only want to pause when playing
+	if (GetState() == AL_PLAYING)
+	{
+		alSourcePause(idSource);
+	}
+	
 	if (AL_NO_ERROR != alGetError())
 	{
 		std::cout << "OpenAL error in Pause()." << std::endl;
@@ -167,7 +177,12 @@ void Audio::AudioEmitter::Pause()
 
 void Audio::AudioEmitter::Stop()
 {
-	alSourceStop(idSource);
+	// Only want to stop when playing
+	if (GetState() == AL_PLAYING)
+	{
+		alSourceStop(idSource);
+	}
+	
 	if (AL_NO_ERROR != alGetError())
 	{
 		std::cout << "OpenAL error in Stop()." << std::endl;

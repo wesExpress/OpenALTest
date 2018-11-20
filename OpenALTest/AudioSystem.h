@@ -8,17 +8,14 @@
 #include "AudioEngine/ALSoundEmitter.h"
 #include "AudioEngine/ALListener.h"
 
-namespace Audio
+class AudioSystem : public Audio::OpenALBackend
 {
-	class AudioSystem : public OpenALBackend
-	{
-	public:
-		explicit AudioSystem();
-		virtual ~AudioSystem();
-	public:
-		void LoadFromFile(const std::string& name, const std::string& filePath);
-		std::shared_ptr<AudioEmitter> GetEmitter(const std::string& name);
-	protected:
-		std::map<std::string, std::shared_ptr<AudioEmitter>> emitters;
-	};
-}
+public:
+	explicit AudioSystem();
+	virtual ~AudioSystem();
+public:
+	void LoadFromFile(const std::string& name, const std::string& filePath);
+	std::shared_ptr<Audio::AudioEmitter> GetEmitter(const std::string& name);
+protected:
+	std::map<std::string, std::shared_ptr<Audio::AudioEmitter>> emitters;
+};

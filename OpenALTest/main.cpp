@@ -4,7 +4,7 @@
 
 int main()
 {
-	std::unique_ptr<Audio::AudioSystem> audioSystem = std::make_unique<Audio::AudioSystem>();
+	std::unique_ptr<AudioSystem> audioSystem = std::make_unique<AudioSystem>();
 	std::unique_ptr<Audio::AudioListener> audioListener = std::make_unique<Audio::AudioListener>();
 	audioSystem->LoadFromFile("pistol", "Sounds/pistol.wav");
 	audioSystem->LoadFromFile("spell", "Sounds/foom_0_mono.wav");

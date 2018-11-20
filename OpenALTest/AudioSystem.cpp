@@ -1,14 +1,14 @@
 #include "AudioSystem.h"
 
-Audio::AudioSystem::AudioSystem()
+AudioSystem::AudioSystem()
 {
 }
 
-Audio::AudioSystem::~AudioSystem()
+AudioSystem::~AudioSystem()
 {
 }
 
-void Audio::AudioSystem::LoadFromFile(const std::string & name, const std::string & filePath)
+void AudioSystem::LoadFromFile(const std::string & name, const std::string & filePath)
 {
 	if (filePath.empty())
 	{
@@ -16,11 +16,11 @@ void Audio::AudioSystem::LoadFromFile(const std::string & name, const std::strin
 		return;
 	}
 
-	std::shared_ptr<AudioEmitter> emitter = std::make_shared<AudioEmitter>(filePath);
+	std::shared_ptr<Audio::AudioEmitter> emitter = std::make_shared<Audio::AudioEmitter>(filePath);
 	emitters.emplace(name, emitter);
 }
 
-std::shared_ptr<Audio::AudioEmitter> Audio::AudioSystem::GetEmitter(const std::string & name)
+std::shared_ptr<Audio::AudioEmitter> AudioSystem::GetEmitter(const std::string & name)
 {
 	if (emitters.count(name) > 0)
 	{

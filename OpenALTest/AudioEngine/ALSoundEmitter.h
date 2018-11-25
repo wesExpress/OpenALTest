@@ -41,7 +41,7 @@ namespace Audio
 
 		void EnableRelativelistener(bool relative);
 
-		glm::vec3& GetPostion() { return position; }
+		glm::vec3& GetPosition() { return position; }
 
 		void Play();
 		void Pause();
@@ -57,8 +57,8 @@ namespace Audio
 
 		bool loop;
 
-		float volume;
-		float gain;
+		float volume = 1.0f;
+		float gain = 1.0f;
 		float minGain;
 		float maxGain;
 		float minDistance;

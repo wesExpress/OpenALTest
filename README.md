@@ -8,5 +8,5 @@ Emitters are able to have distance attenuation relative to the listener, **BUT T
 Currently sounds are simply loaded in as-is, but this is terrible memory wise. Will need to read in files into multiple buffers to prevent memory getting out of hand with large audio files.
 
 ## TO DO
--need to have a better way of playing sounds repeatedly. Currently only plays when a sound stops, but this is not the solution.
+-need to have a better way of playing sounds repeatedly. Currently only plays when a sound stops, but this is not the solution.</br>
 -need to be able to take care of large sound files and play multiple buffers instead of loading into one buffer
